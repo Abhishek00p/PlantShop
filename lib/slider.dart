@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plantshop/Authentication.dart';
 import 'package:plantshop/colors.dart';
 import 'package:plantshop/getcontrol.dart';
+import 'package:plantshop/home.dart';
+import 'package:toast/toast.dart';
 
 class LoginRegistrationSlider extends StatefulWidget {
   int ind;
@@ -24,9 +27,18 @@ class _LoginRegistrationSliderState extends State<LoginRegistrationSlider> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+  void dispose() {
+    username.dispose();
+    email.dispose();
+    password.dispose();
+    super.dispose();
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    ToastContext().init(context);
+
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -86,7 +98,7 @@ class _LoginRegistrationSliderState extends State<LoginRegistrationSlider> {
                               });
                             },
                             child: Container(
-                              width: (size.width - 30) / 2.25,
+                              width: (size.width - 30) / 2.22,
                               decoration: _selectedTabIndex == 1
                                   ? BoxDecoration(
                                       border: Border.all(),
@@ -128,10 +140,18 @@ class _LoginRegistrationSliderState extends State<LoginRegistrationSlider> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          "assets/Google.png",
-                          height: 40,
-                          width: 40,
+                        GestureDetector(
+                          onTap: () async {
+                            final res = await signInWithGoogle();
+                            res["status"] == 200
+                                ? Get.to(Home())
+                                : Toast.show(res["mesg"]);
+                          },
+                          child: Image.asset(
+                            "assets/Google.png",
+                            height: 40,
+                            width: 40,
+                          ),
                         ),
                         SizedBox(
                           width: 10,
@@ -278,7 +298,7 @@ createLogin(h, w, containerh, containerw) {
                     if (value.length < 6) {
                       return 'Please enter a password with more then 6 charachter';
                     }
-                    return null;
+                    return "";
                   },
                 ),
               ),
@@ -311,10 +331,17 @@ createLogin(h, w, containerh, containerw) {
                 height: 15,
               ),
               GestureDetector(
-                onTap: () {
+                onTap: () async {
+                  final res = await LoginUserWithEmailAndPass(
+                      email.text, password.text);
+
                   username.clear();
                   email.clear();
                   password.clear();
+
+                  res["status"] == 200
+                      ? Get.to(Home())
+                      : Toast.show(res["mesg"]);
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -434,10 +461,16 @@ createRegister(h, w, containerh, containerw) {
                 height: h * 0.04,
               ),
               GestureDetector(
-                onTap: () {
+                onTap: () async {
+                  final res =
+                      await CreateUserEmaiAndPass(email.text, password.text);
+
                   username.clear();
                   email.clear();
                   password.clear();
+                  res["status"] == 200
+                      ? Get.to(Home())
+                      : Toast.show(res["mesg"]);
                 },
                 child: Container(
                   decoration: BoxDecoration(
