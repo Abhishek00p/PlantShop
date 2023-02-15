@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plantshop/Authentication.dart';
-import 'package:plantshop/colors.dart';
-import 'package:plantshop/getcontrol.dart';
+import 'package:plantshop/backend/Authentication.dart';
+import 'package:plantshop/backend/colors.dart';
+import 'package:plantshop/backend/getcontrol.dart';
 import 'package:plantshop/home.dart';
 import 'package:toast/toast.dart';
 

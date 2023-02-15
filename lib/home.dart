@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plantshop/colors.dart';
+import 'package:plantshop/backend/colors.dart';
 import 'package:toast/toast.dart';
 
-import 'Plant.dart';
+import 'screens/Plant.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

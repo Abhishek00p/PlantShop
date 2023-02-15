@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plantshop/colors.dart';
-import 'package:plantshop/slider.dart';
+import 'package:plantshop/backend/colors.dart';
+import 'package:plantshop/backend/slider.dart';
 
 class AuthScreenWelcome extends StatefulWidget {
   const AuthScreenWelcome({super.key});
