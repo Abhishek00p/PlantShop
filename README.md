@@ -1,5 +1,14 @@
 # plantshop
 
+## Video Preview
+
+https://user-images.githubusercontent.com/90974451/222370165-36ee5401-db69-4f39-8fdb-8f2b4a5c7da6.mp4
+
+
+
+
+### customize the app by Cloning the Repo
+
 A new Flutter project.
 
 ## Getting Started
