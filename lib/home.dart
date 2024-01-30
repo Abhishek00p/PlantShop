@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:plantshop/backend/colors.dart';
 import 'package:toast/toast.dart';
 
-import 'screens/Plant.dart';
+import 'screens/plant.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

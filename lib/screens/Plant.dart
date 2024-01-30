@@ -133,7 +133,7 @@ class _PlantPageState extends State<PlantPage> {
                             bottom: 0,
                             child: Container(
                               child: FlutterImageStack(
-                                imageSource: ImageSource.Asset,
+                                imageSource: ImageSource.asset,
                                 itemBorderWidth: 2,
                                 itemRadius: 40,
                                 backgroundColor: Colors.white,
