@@ -1,8 +1,8 @@
 // app.js
 const express = require('express');
 const mongoose = require('mongoose');
-const plantRoutes = require('./routes/plantRoutes');
-const userRoutes = require('./routes/userRoutes');
+const plantRoute = require('./plant_route.js');
+const userRoute = require('./user_route.js');
 
 const app = express();
 
@@ -23,8 +23,8 @@ mongoose.connection.once('open', () => {
 app.use(express.json());
 
 // Use routes
-app.use('/api', plantRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api', plantRoute);
+app.use('/api/users', userRoute);
 
 // Other middleware and setup can be added
 

@@ -1,13 +1,13 @@
 // routes/plantRoutes.js
 const express = require('express');
-const router = express.Router();
-const plantController = require('../controllers/plantController');
+const plantRouter = express.Router();
+const plantController = require('../controllers/plant_Controller.js');
 
 // Define routes for plants
-router.get('/plants', plantController.getAllPlants);
-router.get('/plants/:id', plantController.getPlantById);
-router.post('/plants', plantController.addPlant);
-router.put('/plants/:id', plantController.updatePlant);
-router.delete('/plants/:id', plantController.deletePlant);
+plantRouter.get('/plants', plantController.getAllPlants);
+plantRouter.get('/plants/:id', plantController.getPlantById);
+plantRouter.post('/plants', plantController.addPlant);
+plantRouter.put('/plants/:id', plantController.updatePlant);
+plantRouter.delete('/plants/:id', plantController.deletePlant);
 
-module.exports = router;
+module.exports = plantRouter;
