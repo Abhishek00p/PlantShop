@@ -176,7 +176,7 @@ class _PlantPageState extends State<PlantPage> {
                                     ),
                                   ),
                                 ),
-                              ))
+                              ),)
                         ],
                       ),
                     )
