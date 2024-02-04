@@ -17,6 +17,7 @@ exports.getPlantById = async (req, res) => {
     if (!plant) {
       return res.status(404).json({ error: 'Plant not found' });
     }
+   
     res.status(200).json(plant);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -24,12 +25,12 @@ exports.getPlantById = async (req, res) => {
 };
 
 // Add a new plant
-exports.addPlant = async (req, res) => {
+exports.addPlant = async (req, res,next) => {
   try {
     const newPlant = await Plant.create(req.body);
     res.status(201).json(newPlant);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error:error });
   }
 };
 

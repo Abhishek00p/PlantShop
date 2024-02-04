@@ -8,7 +8,10 @@ const plantSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    description: String,
+    description: {
+      type:String,
+      required:false,
+    },
     price: {
       type: Number,
       required: true,
@@ -17,7 +20,10 @@ const plantSchema = new mongoose.Schema({
       type: Number,
       required: true,
     },
-    imageUrl: String,
+    imageUrl: {
+      type:String,
+      required:false,
+    },
     category: {
       type: String,
       enum: ['Indoor', 'Outdoor', 'Succulent', 'Herb', 'Flowering', 'Others'],

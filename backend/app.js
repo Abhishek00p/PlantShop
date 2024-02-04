@@ -1,53 +1,26 @@
 const express  = require('express');
-const mongoose  = require('mongoose');
+const bodyParser = require('body-parser');
+
+
 const plantRoutes = require('./routes/plant_route.js');
 const userRoutes = require('./routes/user_route.js');
 const orderRoutes = require('./routes/order_route.js');
 const reviewRoutes = require('./routes/review_route.js');
 const categoryRoutes = require('./routes/category_route.js');
 const cartRoutes = require('./routes/cart_route.js');
-const fs = require('fs')
+const ConnectionDB = require('./mongo_connection.js');
 // const myjson = require('config/app_config.json');
-
-
 const app = express();
+app.use(bodyParser.json());
 
-const jsonPath ="config/app_config.json"
+app.use('/plant',plantRoutes);
+app.use('/user',userRoutes);
+app.use('/order',orderRoutes);
+app.use('/review',reviewRoutes);
+app.use('/cart',cartRoutes);
+app.use('/category',categoryRoutes);
 
-var configData="";
-
-function getMongoDbUrlString(callBack){
-
-    fs.readFile(jsonPath,'utf8',(err,data)=>{
-        if(err){
-            console.log("some error occured while reading config file :",err)
-            callBack(err,null)
-        }
-        try {
-            const fileData = JSON.parse(data)
-            console.log('file read : ',fileData['mongodb'])
-            configData=fileData;
-            callBack( null,fileData['mongodb'])
-        } catch (error) {
-            console.error('error while parsing json ',error)
-            callBack(error,null)
-        }
-    
-    })
-}
-getMongoDbUrlString((err,result)=>{
-
-    if(err){
-
-    }else{
-mongoose.connect(result).then(()=>{
-    console.log('connected to MongoDB ');
-    app.listen(3000);
-    }
-    ).then(()=>console.log('app started listening '))
-    .catch((err)=>console.log('some error found while connecting or starting server : ',err));
-    }
-})
+ConnectionDB();
 
 app.use('/test',(req,res,next)=>{
   
@@ -58,3 +31,6 @@ app.use('/test',(req,res,next)=>{
     
 });
 
+app.listen(3000,()=>{
+    console.log('app started listening');
+});
