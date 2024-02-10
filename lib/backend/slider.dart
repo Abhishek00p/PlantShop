@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:plantshop/backend/Authentication.dart';
 import 'package:plantshop/backend/colors.dart';
 import 'package:plantshop/backend/getcontrol.dart';
+import 'package:plantshop/core/error/exception.dart';
 import 'package:plantshop/home.dart';
 import 'package:toast/toast.dart';
 
@@ -332,16 +333,27 @@ createLogin(h, w, containerh, containerw) {
               ),
               GestureDetector(
                 onTap: () async {
-                  final res = await LoginUserWithEmailAndPass(
-                      email.text, password.text);
+                  // final res = await LoginUserWithEmailAndPass(
+                  //     email.text, password.text);
 
+                  try {
+                    debugPrint(
+                        'email sent : ${email.text} , pass : ${password.text}');
+                    await MongoAuth.loginWithEmailAndPassword(
+                        email: email.text, password: password.text);
+                  } catch (e) {
+                    if (e is UserAuthFailException) {
+                      Toast.show('Invalid Credentials');
+                    } else {
+                      Toast.show((e as SomethingWentWrongException).message);
+                    }
+                  }
                   username.clear();
                   email.clear();
                   password.clear();
-
-                  res["status"] == 200
-                      ? Get.to(Home())
-                      : Toast.show(res["mesg"]);
+                  // res["status"] == 200
+                  //     ? Get.to(Home())
+                  //     : Toast.show(res["mesg"]);
                 },
                 child: Container(
                   decoration: BoxDecoration(

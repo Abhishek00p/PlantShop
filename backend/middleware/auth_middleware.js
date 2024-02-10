@@ -7,14 +7,13 @@ require('dotenv/config');
 const authenticateJWT = (req, res, next) => {
     const token = req.headers.authorization;
     if(!token){
-  
       return res.status(401).json({ error: 'Unauthorized' });
     }else{
        var refinedToken = token.toString().replace('Bearer','');
       jwt.verify(refinedToken.trim(),"sdhsdsjjd754154547",(err,user)=>{
 
         if(err){
-            console.log(err);
+            console.log("Eror while verify token",err);
           res.status(403).json({"error":"You are not allowed to make Request"})
         }else{
           next()

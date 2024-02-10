@@ -23,7 +23,7 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
           width: size.width,
           child: Padding(
             padding: const EdgeInsets.all(25.0),
-            child: Container(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   Container(
@@ -38,10 +38,10 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
                     height: 20,
                   ),
                   Text(
-                    "\"You can plant a \n dream\"",
+                    '"You can plant a \n dream"',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 32,
+                        fontSize: 24,
                         fontFamily: "DM Serif",
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(45, 57, 21, 1)),

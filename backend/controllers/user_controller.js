@@ -9,6 +9,16 @@ const jwt = require('jsonwebtoken');
 // Register a new user
 exports.registerUser = async (req, res) => {
   try {
+   const {username,email,password}=req.body
+    if(!username){
+      res.status(400).json({error:"Invalid username"})
+    }
+   else if(!email){
+      res.status(400).json({error:"Invalid email"})
+    }
+    else if(!password){
+      res.status(400).json({error:"Invalid password"})
+    }
     const newUser = await User.create(req.body);
     res.status(201).json(newUser);
   } catch (error) {
@@ -21,11 +31,18 @@ exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    
+    if (!email) {
+      return res.status(401).json({ error: 'Invalid email' });
+    }else if(!password){
+      return res.status(401).json({ error: 'Invalid password' });
 
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
     }
+    const user = await User.findOne({ email });
+if(!user){
+  return res.status(401).json({ error: 'user not found , Invalid Credential' });
+
+}
 
     const isPasswordValid = await user.comparePassword(password);
 
