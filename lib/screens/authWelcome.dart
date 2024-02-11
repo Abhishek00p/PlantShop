@@ -26,7 +26,7 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: size.height * 0.45,
                     width: size.width - 50,
                     child: Image.asset(
@@ -34,10 +34,10 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
                       fit: BoxFit.fill,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text(
+                  const Text(
                     '"You can plant a \n dream"',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -46,13 +46,13 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(45, 57, 21, 1)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15),
                     child: Text(
-                      "We help realize your dreams in making garden, let’s start with small thing.",
+                      "We help realize your dreams in making garden, let's start with small thing.",
                       style: TextStyle(
                           fontSize: 16,
                           fontFamily: "DM Serif",
@@ -61,7 +61,7 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   GestureDetector(
@@ -73,7 +73,7 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
                           color: greenColor),
                       height: 48,
                       width: size.width - 50,
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Sign In",
                           style: TextStyle(color: mybackground, fontSize: 17),
@@ -82,7 +82,7 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   GestureDetector(
@@ -94,7 +94,7 @@ class _AuthScreenWelcomeState extends State<AuthScreenWelcome> {
                           color: mybackground),
                       height: 48,
                       width: size.width - 50,
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Sign Up",
                           style: TextStyle(color: greenColor, fontSize: 17),

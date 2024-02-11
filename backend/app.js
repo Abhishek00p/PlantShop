@@ -1,7 +1,5 @@
 const express  = require('express');
 const bodyParser = require('body-parser');
-
-
 const plantRoutes = require('./routes/plant_route.js');
 const userRoutes = require('./routes/user_route.js');
 const orderRoutes = require('./routes/order_route.js');
@@ -22,12 +20,9 @@ app.use('/category',categoryRoutes);
 ConnectionDB();
 
 app.use('/test',(req,res,next)=>{
-  
-
     res.send({
         'health':'Good!!'
     });
-    
 });
 
 app.listen(3000,()=>{

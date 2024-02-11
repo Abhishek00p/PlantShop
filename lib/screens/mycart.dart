@@ -45,17 +45,17 @@ class _CartState extends State<Cart> {
                     height: 40,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Text(
+                const Text(
                   "My Cart",
                   style: TextStyle(
                       fontSize: 34,
                       color: greenColor,
                       fontWeight: FontWeight.w400),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -65,16 +65,16 @@ class _CartState extends State<Cart> {
                       height: size.height * 0.1,
                       width: size.width * 0.28,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
-                    Container(
+                    SizedBox(
                       height: size.height * 0.1,
                       width: (size.width * 0.85) - (size.width * 0.28),
                       // color: Colors.amber,
                       child: Stack(
                         children: [
-                          Positioned(
+                          const Positioned(
                               child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -100,7 +100,7 @@ class _CartState extends State<Cart> {
                           Positioned(
                               right: 5,
                               bottom: 5,
-                              child: Container(
+                              child: SizedBox(
                                 width: 100,
                                 child: Row(
                                   mainAxisAlignment:
@@ -113,7 +113,7 @@ class _CartState extends State<Cart> {
                                         height: 24,
                                       ),
                                     ),
-                                    Text(
+                                    const Text(
                                       "1",
                                       style: TextStyle(
                                           fontSize: 24,
@@ -135,7 +135,7 @@ class _CartState extends State<Cart> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(children: [
@@ -144,16 +144,16 @@ class _CartState extends State<Cart> {
                     height: size.height * 0.1,
                     width: size.width * 0.28,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
-                  Container(
+                  SizedBox(
                     height: size.height * 0.1,
                     width: (size.width * 0.85) - (size.width * 0.28),
                     // color: Colors.amber,
                     child: Stack(
                       children: [
-                        Positioned(
+                        const Positioned(
                             child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -179,7 +179,7 @@ class _CartState extends State<Cart> {
                         Positioned(
                             right: 5,
                             bottom: 5,
-                            child: Container(
+                            child: SizedBox(
                               width: 100,
                               child: Row(
                                 mainAxisAlignment:
@@ -192,7 +192,7 @@ class _CartState extends State<Cart> {
                                       height: 24,
                                     ),
                                   ),
-                                  Text(
+                                  const Text(
                                     "1",
                                     style: TextStyle(
                                         fontSize: 24,
@@ -213,14 +213,14 @@ class _CartState extends State<Cart> {
                     ),
                   ),
                 ]),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Text(
+                const Text(
                   "Promo Code",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
@@ -232,14 +232,14 @@ class _CartState extends State<Cart> {
                   child: TextFormField(
                     controller: promodeControler,
                     textAlign: TextAlign.center,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: "Enter Your PromoCode",
                         hintStyle:
                             TextStyle(fontSize: 16, color: mybackground)),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Center(
@@ -253,7 +253,7 @@ class _CartState extends State<Cart> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: greenColor),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Apply",
                           style: TextStyle(color: mybackground),
@@ -262,17 +262,17 @@ class _CartState extends State<Cart> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Column(
                   children: [
-                    Text(
+                    const Text(
                       "Bill Details",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -286,10 +286,10 @@ class _CartState extends State<Cart> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -303,10 +303,10 @@ class _CartState extends State<Cart> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -320,10 +320,10 @@ class _CartState extends State<Cart> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -337,7 +337,7 @@ class _CartState extends State<Cart> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Center(
@@ -347,7 +347,7 @@ class _CartState extends State<Cart> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: greenColor),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Checkout",
                             style: TextStyle(color: mybackground),

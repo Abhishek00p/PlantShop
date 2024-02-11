@@ -49,7 +49,7 @@ class _PlantPageState extends State<PlantPage> {
                         height: 24,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     GestureDetector(
@@ -61,7 +61,7 @@ class _PlantPageState extends State<PlantPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Image.asset(
@@ -69,10 +69,10 @@ class _PlantPageState extends State<PlantPage> {
                   height: size.height * 0.44,
                   width: size.width * 0.9,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -83,29 +83,29 @@ class _PlantPageState extends State<PlantPage> {
                     Text("Rs 200")
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "(MRP Inclusive of all taxes)",
                       style: TextStyle(fontWeight: FontWeight.w300),
                     ),
-                    Text(
+                    const Text(
                       "Shipping ₹ 79 for entire order",
                       style: TextStyle(fontWeight: FontWeight.w300),
                     ),
-                    Text(
+                    const Text(
                       "Dispatch in 7 days",
                       style: TextStyle(fontWeight: FontWeight.w300),
                     ),
-                    Text(
+                    const Text(
                       "Country of origin: India",
                       style: TextStyle(fontWeight: FontWeight.w300),
                     ),
-                    Container(
+                    SizedBox(
                       height: 16,
                       // color: Colors.red,
                       width: 100,
@@ -113,7 +113,7 @@ class _PlantPageState extends State<PlantPage> {
                         scrollDirection: Axis.horizontal,
                         itemCount: 3,
                         itemBuilder: (context, ind) {
-                          return Icon(
+                          return const Icon(
                             Icons.star,
                             size: 12,
                             color: Colors.black,
@@ -121,10 +121,10 @@ class _PlantPageState extends State<PlantPage> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Container(
+                    SizedBox(
                       height: 80,
                       // color: Colors.amber,
                       child: Stack(
@@ -137,7 +137,7 @@ class _PlantPageState extends State<PlantPage> {
                                 itemBorderWidth: 2,
                                 itemRadius: 40,
                                 backgroundColor: Colors.white,
-                                imageList: [
+                                imageList: const [
                                   "assets/user1.png",
                                   "assets/user2.png",
                                   "assets/user3.png",
@@ -148,7 +148,7 @@ class _PlantPageState extends State<PlantPage> {
                               ),
                             ),
                           ),
-                          Positioned(
+                          const Positioned(
                               bottom: 50,
                               child: Text(
                                 "(12.7k reviews)",
@@ -159,7 +159,7 @@ class _PlantPageState extends State<PlantPage> {
                               bottom: 10,
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(Cart());
+                                  Get.to(const Cart());
                                   Toast.show("Added to cart");
                                 },
                                 child: Container(
@@ -168,7 +168,7 @@ class _PlantPageState extends State<PlantPage> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: greenColor),
-                                  child: Center(
+                                  child: const Center(
                                     child: Text(
                                       "Add to Cart",
                                       style: TextStyle(

@@ -31,13 +31,14 @@ exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    console.log('data got in login : ',email,password);
     
-    if (!email) {
-      return res.status(401).json({ error: 'Invalid email' });
-    }else if(!password){
-      return res.status(401).json({ error: 'Invalid password' });
+    // if (!email) {
+    //   return res.status(401).json({ error: 'Invalid email' });
+    // }else if(!password){
+    //   return res.status(401).json({ error: 'Invalid password' });
 
-    }
+    // }
     const user = await User.findOne({ email });
 if(!user){
   return res.status(401).json({ error: 'user not found , Invalid Credential' });
@@ -52,7 +53,7 @@ if(!user){
 let userName = user.username;
     // Add your authentication logic here (e.g., JWT token generation)
     const token = jwt.sign({ userName }, "sdhsdsjjd754154547", { expiresIn: '10h' })
-    res.status(200).json({ message: 'Login successful',"user":{"name":user.username,"email":user.email},"token":token });
+    res.status(200).json({ message: 'Login successful',"user":{"username":user.username,"email":user.email,"token":token} });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

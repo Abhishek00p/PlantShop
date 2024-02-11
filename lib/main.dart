@@ -3,12 +3,21 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:plantshop/core/hive/hive.dart';
+import 'package:plantshop/core/hive/user_adapter.dart';
 import 'package:plantshop/screens/authWelcome.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
-  runApp(GetMaterialApp(
+  await HiveBoxes.setupHive();
+
+  await HiveBoxes.openBox();
+  // Register the User adapter
+  Hive.registerAdapter(UserAdapter());
+  runApp(const GetMaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));
@@ -25,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () => Get.to(AuthScreenWelcome()));
+    Timer(const Duration(seconds: 3), () => Get.to(const AuthScreenWelcome()));
   }
 
   @override
@@ -33,12 +42,12 @@ class _MyAppState extends State<MyApp> {
     final size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Color.fromRGBO(
+            backgroundColor: const Color.fromRGBO(
                 227, 225, 213, 1), //background: rgba(227, 225, 213, 1);
 
             body: Container(
-              alignment: Alignment(0.2, 0.7),
-              child: Container(
+              alignment: const Alignment(0.2, 0.7),
+              child: SizedBox(
                 height: size.height * 0.5,
                 width: size.width * 0.7,
                 child: Column(children: [
@@ -47,10 +56,10 @@ class _MyAppState extends State<MyApp> {
                     height: 100,
                     width: 100,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
-                  Text(
+                  const Text(
                     "Plat Your \n  Future ",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -59,10 +68,10 @@ class _MyAppState extends State<MyApp> {
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(45, 57, 21, 1)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text(
+                  const Text(
                     "When in doubt, add flowers.",
                     style: TextStyle(
                         fontSize: 12,
