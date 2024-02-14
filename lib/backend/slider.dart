@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plantshop/backend/Authentication.dart';
@@ -54,8 +56,9 @@ class _LoginRegistrationSliderState extends State<LoginRegistrationSlider> {
         stream: _userBoxStream,
         builder: (context, snapshot) {
           // Check if user data is available
-          AppUser? userData = userBox.get('userData');
-          if (userData != null && !userData.isEmpty) {
+          // AppUser? userData = AppUser.fromjson(json:jsonDecode(userBox.get('userData')));
+          AppUser userData = HiveBoxes.getUser();
+          if (!userData.isEmpty) {
             // Redirect to the homepage immediately
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Get.to(const Home());

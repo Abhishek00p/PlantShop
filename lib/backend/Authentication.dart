@@ -8,7 +8,6 @@ import 'package:plantshop/core/constants.dart';
 import 'package:plantshop/core/core.dart';
 import 'package:plantshop/core/error/exception.dart';
 import 'package:plantshop/core/hive/hive.dart';
-import 'package:plantshop/core/hive/user_adapter.dart';
 import 'package:plantshop/models/user_model.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
@@ -76,7 +75,10 @@ class MongoAuth {
       if (response.statusCode == 200) {
         HiveBoxes.openBox();
         final user = AppUser.fromjson(json: jsonDecode(response.body)['user']);
-        await HiveBoxes.userBox.put('userData', user);
+        await HiveBoxes.updateUser(appUser: user);
+        await HiveBoxes.userCredentialBox.put('email', email);
+        await HiveBoxes.userCredentialBox.put('password', password);
+        // await HiveBoxes.userBox.put('userData', user);
       } else {
         throw UserAuthFailException('fail to login user');
       }
@@ -88,6 +90,17 @@ class MongoAuth {
         throw SomethingWentWrongException(
             'Something Wrong happen while authenticating user');
       }
+    }
+  }
+
+  Future<void> refreshUserSession() async {
+    final userEmail = HiveBoxes.userCredentialBox.get('email');
+    final userPassword = HiveBoxes.userCredentialBox.get('password');
+    try {
+      return loginWithEmailAndPassword(
+          email: userEmail ?? '', password: userPassword ?? '');
+    } catch (e) {
+      rethrow;
     }
   }
 }

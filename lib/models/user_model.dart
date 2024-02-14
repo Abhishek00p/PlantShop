@@ -14,11 +14,11 @@ class AppUser {
         userToken: json['token']);
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, String> toJson() {
     return {
       "username": username,
       "email": email,
-      "userToken": userToken,
+      "token": userToken,
     };
   }
 
