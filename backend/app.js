@@ -5,6 +5,7 @@ const userRoutes = require('./routes/user_route.js');
 const orderRoutes = require('./routes/order_route.js');
 const reviewRoutes = require('./routes/review_route.js');
 const categoryRoutes = require('./routes/category_route.js');
+const refreshRoute = require('./routes/refresh_token_route.js');
 const cartRoutes = require('./routes/cart_route.js');
 const ConnectionDB = require('./mongo_connection.js');
 // const myjson = require('config/app_config.json');
@@ -17,6 +18,7 @@ app.use('/order',orderRoutes);
 app.use('/review',reviewRoutes);
 app.use('/cart',cartRoutes);
 app.use('/category',categoryRoutes);
+app.use('/tokenRefresh',refreshRoute);
 ConnectionDB();
 
 app.use('/test',(req,res,next)=>{

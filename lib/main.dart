@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:plantshop/core/hive/hive.dart';
-import 'package:plantshop/core/hive/user_adapter.dart';
 import 'package:plantshop/screens/authWelcome.dart';
 
 void main() async {

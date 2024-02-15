@@ -12,8 +12,7 @@ class PlantCubit extends Cubit<PlantState> {
     final user = HiveBoxes.getUser();
     if (!user.isEmpty) {
       try {
-        final plants =
-            await PlantDataSource.getAllPlants(bToken: user.userToken);
+        final plants = await PlantDataSource.getAllPlants();
         emit(GetAllPlantLoadedState(plants: plants));
       } catch (e) {
         emit(GetAllPlantErrorState(exception: e as CustomException));

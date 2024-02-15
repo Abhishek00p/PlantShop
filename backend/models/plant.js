@@ -29,6 +29,10 @@ const plantSchema = new mongoose.Schema({
       enum: ['Indoor', 'Outdoor', 'Succulent', 'Herb', 'Flowering', 'Others'],
       required: true,
     },
+    rating:{
+      type:Number,
+      default:0,
+    }
   });
   
   const Plant = mongoose.model('Plant', plantSchema);

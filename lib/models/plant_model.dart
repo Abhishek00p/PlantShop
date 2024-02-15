@@ -11,6 +11,7 @@ class PlantModel {
   int? price;
   int? quantityInStock;
   String? category;
+  int? rating;
 
   PlantModel({
     required this.id,
@@ -18,20 +19,23 @@ class PlantModel {
     this.price,
     this.quantityInStock,
     this.category,
+    this.rating,
   });
 
   factory PlantModel.fromJson(Map<String, dynamic> json) => PlantModel(
-        id: json["_id"],
-        name: json["name"],
-        price: json["price"],
-        quantityInStock: json["quantityInStock"],
-        category: json["category"],
+        id: json["_id"] as String,
+        name: json["name"] as String?,
+        price: json["price"] as int?,
+        rating: json["rating"] as int?,
+        quantityInStock: json["quantityInStock"] as int?,
+        category: json["category"] as String?,
       );
 
   Map<String, dynamic> toJson() => {
         "_id": id,
         "name": name,
         "price": price,
+        "rating": rating,
         "quantityInStock": quantityInStock,
         "category": category,
       };

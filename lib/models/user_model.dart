@@ -1,4 +1,3 @@
-import 'package:plantshop/backend/slider.dart';
 
 class AppUser {
   AppUser(
