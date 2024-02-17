@@ -60,7 +60,7 @@ class _LoginRegistrationSliderState extends State<LoginRegistrationSlider> {
           if (!userData.isEmpty) {
             // Redirect to the homepage immediately
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              Get.to(const Home());
+              Get.to(const HomePage());
             });
           }
           return Scaffold(
@@ -171,7 +171,7 @@ class _LoginRegistrationSliderState extends State<LoginRegistrationSlider> {
                                 onTap: () async {
                                   final res = await signInWithGoogle();
                                   res["status"] == 200
-                                      ? Get.to(const Home())
+                                      ? Get.to(const HomePage())
                                       : Toast.show(res["mesg"]);
                                 },
                                 child: Image.asset(
@@ -515,7 +515,7 @@ createRegister(h, w, containerh, containerw) {
                   email.clear();
                   password.clear();
                   res["status"] == 200
-                      ? Get.to(const Home())
+                      ? Get.to(const HomePage())
                       : Toast.show(res["mesg"]);
                 },
                 child: Container(

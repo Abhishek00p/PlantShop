@@ -16,6 +16,7 @@ const authenticateJWT = (req, res, next) => {
             console.log("Eror while verify token",err);
           res.status(403).json({"error":"You are not allowed to make Request"})
         }else{
+          console.log(user);
           next()
         }
       })
