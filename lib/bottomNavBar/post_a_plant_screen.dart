@@ -14,7 +14,7 @@ class PostAPlantScreenProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => PostAPlantBloc(),
-      child: PostAPlantScreen(),
+      child: const PostAPlantScreen(),
     );
   }
 }
@@ -59,9 +59,10 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
           child: ListView(
             children: [
               SizedBoxHeight10,
-              Align(alignment: Alignment.center, child: Text('Post A Plant')),
+              const Align(
+                  alignment: Alignment.center, child: Text('Post A Plant')),
               SizedBoxWidth50,
-              Text('Plant Name'),
+              const Text('Plant Name'),
               SizedBoxHeight10,
               SizedBox(
                 height: 60,
@@ -71,13 +72,13 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")),
                   ],
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: 'Enter a Plant Name',
                       border: OutlineInputBorder()),
                 ),
               ),
               SizedBoxHeight15,
-              Text('Plant Quantity'),
+              const Text('Plant Quantity'),
               SizedBoxHeight10,
               SizedBox(
                 height: 60,
@@ -87,12 +88,12 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
                   ],
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: '2', border: OutlineInputBorder()),
                 ),
               ),
               SizedBoxWidth15,
-              Text('Plant Category'),
+              const Text('Plant Category'),
               SizedBoxHeight10,
               SizedBox(
                   height: 60,
@@ -106,8 +107,8 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
                         isExpanded: true,
                         items: PlantCategories.values
                             .map((e) => DropdownMenuItem(
-                                  child: Text('${e.name}'),
                                   value: PlantCategoryEnum.plantCategory(e),
+                                  child: Text(e.name),
                                 ))
                             .toList(),
                         onChanged: (value) {
@@ -118,7 +119,7 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
                         }),
                   )),
               SizedBoxWidth15,
-              Text('Plant price'),
+              const Text('Plant price'),
               SizedBoxHeight10,
               SizedBox(
                 height: 60,
@@ -128,7 +129,7 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
                   inputFormatters: [
                     FilteringTextInputFormatter.deny(RegExp("[a-zA-Z]")),
                   ],
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: '500', border: OutlineInputBorder()),
                 ),
               ),
@@ -139,7 +140,7 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: gren,
                         foregroundColor: Colors.white,
-                        textStyle: TextStyle(fontSize: 16)),
+                        textStyle: const TextStyle(fontSize: 16)),
                     onPressed: () {
                       PostAPlantBloc().add(CreateAPlant(
                           plantName: plantNameController.text,
@@ -147,7 +148,7 @@ class _PostAPlantScreenState extends State<PostAPlantScreen> {
                           quantity: int.parse(plantQuantityController.text),
                           categoryOfPlant: plantCategoryController.text));
                     },
-                    child: Text('Post Plant')),
+                    child: const Text('Post Plant')),
               )
             ],
           ),

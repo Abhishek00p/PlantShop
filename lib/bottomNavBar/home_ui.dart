@@ -21,7 +21,7 @@ class HomeUiScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      drawer: Drawer(),
+      drawer: const Drawer(),
       appBar: AppBar(
         title: Container(
           // margin: EdgeInsets.symmetric(vertical: 50),

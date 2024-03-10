@@ -44,14 +44,14 @@ class _HomeState extends State<Home> {
       backgroundColor: mybackground,
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: context.watch<BottomNavBarCubit>().state,
-          selectedLabelStyle: TextStyle(color: Colors.green),
+          selectedLabelStyle: const TextStyle(color: Colors.green),
           selectedItemColor: Colors.green,
           unselectedItemColor: Colors.grey,
-          unselectedLabelStyle: TextStyle(color: Colors.grey),
+          unselectedLabelStyle: const TextStyle(color: Colors.grey),
           onTap: (index) {
             context.read<BottomNavBarCubit>().updatePageIndex(index);
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
               label: 'Home',
               icon: Icon(Icons.home),
