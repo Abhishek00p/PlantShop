@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
   /// only include Ui without scaffolds
   final _pages = [
     HomeUiScreen(),
-    const PostAPlantScreen(),
+    const PostAPlantScreenProvider(),
     const ProfilePage(),
   ];
 
