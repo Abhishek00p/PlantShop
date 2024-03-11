@@ -27,8 +27,23 @@ exports.getPlantById = async (req, res) => {
 // Add a new plant
 exports.addPlant = async (req, res,next) => {
   try {
+
+    console.log("reqbody : ",req.body);
+    const value = await Plant.findOne({
+        name:req.body.name,
+        quantityInStock:req.body.quantityInStock,
+        category:req.body.category,
+        price:req.body.price,
+      });
+console.log(value);
+    if(value){
+      res.status(409).json({"message":"A Plant Already Exists with same Information"});
+
+    }else{
     const newPlant = await Plant.create(req.body);
     res.status(201).json(newPlant);
+
+    }
   } catch (error) {
     res.status(400).json({ error:error });
   }

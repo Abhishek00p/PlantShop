@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:plantshop/backend/apiCalls/plants_datasource.dart';
@@ -19,6 +20,7 @@ class PostAPlantBloc extends Bloc<PostAPlantEvent, PostAPlantState> {
               categoryOfPlant: event.categoryOfPlant);
 
           if (response) {
+            debugPrint('received true from api');
             emit(PostAPlantLoaded());
           } else {
             emit(PostAPlantError(
@@ -26,8 +28,15 @@ class PostAPlantBloc extends Bloc<PostAPlantEvent, PostAPlantState> {
           }
         } catch (e) {
           emit(PostAPlantError(e as CustomException));
+          debugPrint('error state emited');
         }
       }
     });
+  }
+
+  @override
+  void onChange(Change<PostAPlantState> change) {
+    debugPrint('on change callled :${change.nextState}');
+    super.onChange(change);
   }
 }
